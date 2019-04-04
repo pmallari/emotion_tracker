@@ -1,4 +1,5 @@
-import numpy as np 
+import numpy as np
+import face_recognition
 import cv2 as cv 
 
 # Import haarcascade face detector
@@ -11,16 +12,16 @@ video_capture = cv.VideoCapture(0)
 while True:
         ret, frame = video_capture.read()
 
-        gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+        image = cv.resize(frame, (0,0), fx=0.25, fy=0.25)
 
-        faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-        eyes  = eye_cascade.detectMultiScale(gray, 1.3, 5)
+        face_locations = face_recognition.face_locations(image)
 
-        for (x,y,w,h) in faces:
-                cv.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
-
-        for (x,y,w,h) in eyes:
-                cv.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+        for (top, right, bottom, left) in face_locations:
+                top *= 4
+                right *= 4
+                bottom *= 4
+                left *= 4
+                cv.rectangle(frame,(left, top),(right, bottom),(255,0,0),2)
 
         cv.imshow('img',frame)
         
