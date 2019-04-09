@@ -1,10 +1,5 @@
 # Requirements
 
-## To do
-
-Implement and train a better emotion recognition model
-Find a better face tracking module to track faces that are not facing the camera
-
 ## What are we making
 
 This project is a visual emotion tracker. Our goal is to be able to track specific actions by the users like keeping eye contact for example. The application is easy to use and provides detailed information on the actions of the users. The user can interact with the data collected by the web application to know what actions they are committing the most during conversation. The data provided should be displayed intuitively without being overwhelming for the user to digest. Overall, the idea of the application can be summed up in one sentence: Giving users a platform that can give them an assessment of their interactions in certain dialogues like that of an interview.
@@ -18,3 +13,9 @@ The user should be able to go onto the site and see a video feed of themselves. 
 * Are the users allowed to save information/data from previous sessions for reference on their progress? Where is this data saved and how do the users access it?
 * What will the tech stack consist of?
 * Where is the site being hosted?
+
+## To do
+
+Implement and train a better emotion recognition model
+Find a better face tracking module to track faces that are not facing the camera
+Create mockups of the web application
