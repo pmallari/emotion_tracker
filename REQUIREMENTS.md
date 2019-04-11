@@ -11,8 +11,24 @@ The user should be able to go onto the site and see a video feed of themselves. 
 ## Technical issues needed to be discussed
 
 * Are the users allowed to save information/data from previous sessions for reference on their progress? Where is this data saved and how do the users access it?
+For now, no. We can generate a report instead for individual sessions to start off with. Eye contact maintained for x amount of minutes for example. Report would be exported onto a PDF.
 * What will the tech stack consist of?
+See Issue #10
+*How long are the sessions?
+For now, we are making the session time default to 30 minutes each. However, the user will be allowed to end the session at anytime.
+*What are the emotions being recorded?
+
+1. Neutral
+2. Calm
+3. Happy
+4. Sad
+5. Angry
+6. Fearful
+7. Disgust
+8. Surprise
+
 * Where is the site being hosted?
+This will be discussed later in the development process.
 
 ## To do
 
