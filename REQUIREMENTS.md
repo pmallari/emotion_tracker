@@ -18,11 +18,11 @@ The user should be able to go onto the site and see a video feed of themselves. 
 
 > See Issue [#10](https://github.com/pmallari/emotion_tracker/issues/10)
 
-*How long are the sessions?
+* How long are the sessions?
 
 > For now, we are making the session time default to 30 minutes each. However, the user will be allowed to end the session at anytime.
 
-*What are the emotions being recorded?
+* What are the emotions being recorded?
 
 1. Neutral
 2. Calm
