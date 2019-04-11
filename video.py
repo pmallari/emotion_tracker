@@ -19,10 +19,10 @@ while True:
         for (top, right, bottom, left) in face_locations:
 
                 # Rescale bounding boxes to original size
-                top *= 4
-                right *= 4
-                bottom *= 4
-                left *= 4
+                top     *= 4
+                right   *= 4
+                bottom  *= 4
+                left    *= 4
 
                 # Draw bounding boxes
                 cv.rectangle(frame,(left, top),(right, bottom),(255,0,0),2)
