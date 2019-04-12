@@ -6,7 +6,9 @@ import glob
 import face_recognition
 from tqdm import tqdm
 
-face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_alt.xml')
+"""
+Define emotion dictionary to map file name pattern to emotion
+"""
 
 emotion = {"01": "neutral",
            "02": "calm",
@@ -17,10 +19,16 @@ emotion = {"01": "neutral",
            "07": "disgust",
            "08": "surprised"}
 
-vocal   = {"01": "speech",
-           "02": "song"}
+"""
+Define image set where image will be saved
+"""
 
 img_set = ['train', 'test', 'valid']
+
+
+"""
+Check if folders for image data exists. Create folder if it doesn't exist.
+"""
 
 for emote in emotion:
     for folder in img_set:
@@ -28,6 +36,9 @@ for emote in emotion:
         if not os.path.exists(path):
             os.mkdir(path)
 
+"""
+Browse through each video file, detect faces, and crop face.
+"""
 for root, dirs, files in os.walk('data/Video/'):
     print(f"Root file: {root}")
     for name in tqdm(files):
@@ -54,8 +65,21 @@ for root, dirs, files in os.walk('data/Video/'):
                 else:
                     image_set   = "train"
                 
-                for (x, y, w , h) in faces:
-                    crop_img    = frame[y:y+h, x:x+w, :]
+                for (top, right, bottom, left) in faces:
+
+                    width       = right - left
+                    height      = top - bottom
+                    scale_perc  = 0.1
+
+                    delta_w     = width * scale_perc
+                    delta_h     = height * scale_perc
+
+                    top_new     = top - delta_h
+                    right_new   = right + delta_w
+                    bottom_new  = bottom + delta_h
+                    left_new    = left + delta_w
+
+                    crop_img    = frame[top_new:bottom_new, left_new:right_new, :]
 
                 img_emotion     = emotion[profile[2]]
 
